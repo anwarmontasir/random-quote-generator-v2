@@ -12,17 +12,17 @@ project 1 - A Random Quote Generator
 ***/
 
 const quotes = [
-  {quote: 'Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.', source: 'Patrick McKenzie', citation: 'Twitter', year: 2016, url: 'https://twitter.com/codewisdom/status/1182702520696803329?lang=en'},
-  {quote: 'Well, nobody’s perfect.', source: 'Osgood Fielding III', citation: 'Some Like It Hot', year: 1959, url: 'https://www.url.com/title/tt0053291/'},
-  {quote: 'Do your parents know you’re Ramones?', source: 'Miss Togar', citation: 'Rock N Roll High School', year: 1979, url: 'https://www.url.com/title/tt0079813/'}, 
-  {quote: 'No Christine, that’s a frog. Bears wear hats.', source: 'Jim Henson', citation: 'The Great Muppet Caper', year: 1981, url: 'https://www.url.com/title/tt0082474/'},
-  {quote: 'IS THIS SOMETHING YOU CAN SHARE WITH THE REST OF US, AMAZING LARRY?', source: 'Pee Wee Herman', citation: 'Pee Wee’s Big Adventure', year: 1985, url: 'https://www.url.com/title/tt0089791/'}, 
-  {quote: 'And what better way to say “I love you” than with the gift of a spatula?', source: '“Weird Al” Yankovic', citation: 'UHF', year: 1989, url: 'https://www.url.com/title/tt0098546/'}, 
-  {quote: 'Well, what if there is no tomorrow? There wasn’t one today.', source: 'Phil Connors', citation: 'Groundhog Day', year: 1993, url: 'https://www.url.com/title/tt0107048/'}
+  {quote: 'Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.', source: 'Patrick McKenzie', citation: 'Twitter', url: 'https://twitter.com/codewisdom/status/1182702520696803329?lang=en'},
+  {quote: 'Well, nobody’s perfect.', source: 'Osgood Fielding III', citation: 'Some Like It Hot', url: 'https://www.url.com/title/tt0053291/'},
+  {quote: 'Do your parents know you’re Ramones?', source: 'Miss Togar', citation: 'Rock N Roll High School', url: 'https://www.url.com/title/tt0079813/'}, 
+  {quote: 'No Christine, that’s a frog. Bears wear hats.', source: 'Jim Henson', citation: 'The Great Muppet Caper', url: 'https://www.url.com/title/tt0082474/'},
+  {quote: 'IS THIS SOMETHING YOU CAN SHARE WITH THE REST OF US, AMAZING LARRY?', source: 'Pee Wee Herman', citation: 'Pee Wee’s Big Adventure', url: 'https://www.url.com/title/tt0089791/'}, 
+  {quote: 'And what better way to say “I love you” than with the gift of a spatula?', source: '“Weird Al” Yankovic', citation: 'UHF', url: 'https://www.url.com/title/tt0098546/'}, 
+  {quote: 'Well, what if there is no tomorrow? There wasn’t one today.', source: 'Phil Connors', citation: 'Groundhog Day', url: 'https://www.url.com/title/tt0107048/'}
 ];
 
 /* bg array */
-const backgrounds = ['#c36', '#6c3', '#3c6', '#36c', '#c63', '#63c', '#336'];
+const backgrounds = ['#c36', '#6c3', '#3c6', '#36c', '#c63', '#63c', '#366'];
 
 /* currentQuote */
 let currentQuote = 0;
@@ -45,14 +45,14 @@ function getRandomQuote() {
 }
 
 /***
- * `printQuote` function
+ * `loadQuote` function
 ***/
-function printQuote() {
+function loadQuote() {
   // get new quote number
   const quoteNumber = getRandomQuote();
   // create new HTML
   const quoteHtml = 
-  `<p class="quote">${quotes[quoteNumber].quote}</p><p class="source">${quotes[quoteNumber].source}<span class="citation"><a href="${quotes[quoteNumber].url}" target="_blank">${quotes[quoteNumber].citation}</a></span><span class="year">${quotes[quoteNumber].year}</span></p>`;
+  `<p class="quote">${quotes[quoteNumber].quote}</p><p class="source">${quotes[quoteNumber].source}<span class="citation"><a href="${quotes[quoteNumber].url}" target="_blank">${quotes[quoteNumber].citation}</a></span></p>`;
   // update DOM
   quoteBox.innerHTML = quoteHtml;
   // run updateBg
@@ -75,7 +75,7 @@ function updateBg(quoteNumber) {
 let t;
 
 function timer() { 
-  t = setInterval(printQuote, 5000); 
+  t = setInterval(loadQuote, 5000); 
 } 
 
 function stop() { 
@@ -89,4 +89,4 @@ timer();
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", loadQuote, false);
